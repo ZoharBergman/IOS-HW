@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "leftMenuNavigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Board.AllocateImage(cell:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrCardsImages[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "GameController.collectionView(_:layout:sizeForItemAtIndexPath:):GameController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "collectionView.frame.height">
+            </PersistentString>
+            <PersistentString
+               value = "collectionView.frame.width">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MenuController.viewDidLoad():MenuController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Board.CheckMatch(cvBoard:finishGameHandler:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "matchesNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Board.CheckMatch(cvBoard:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "selectedCells[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
