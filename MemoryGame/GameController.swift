@@ -11,7 +11,7 @@ import UIKit
 class GameController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     // Constants
     let TileMargin = CGFloat(5.0)
-    
+ 
     // Properties
     @IBOutlet weak var cvBoard: UICollectionView!
     @IBOutlet weak var lblPlayerName: UILabel!
