@@ -18,6 +18,8 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addBackground(#imageLiteral(resourceName: "menu"))
+        
         // Setting the levels' picker
         self.pickerLevels.dataSource = self
         self.pickerLevels.delegate = self
@@ -64,17 +66,22 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         txtName.text = txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         if (txtName.text!.isEmpty) {
             let alertView = UIAlertController(title: "Error", message: "Please enter a name", preferredStyle: .alert)
-            alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+            alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler:{
+                [weak self] (alert: UIAlertAction) -> Void in
+                // Dismissing the alert
+                self?.dismiss(animated: true, completion: nil)
+            }))
+            
             self.present(alertView, animated: true, completion: nil)
         } else {
             // Checking how to configure the game's board
             switch pickerLevels.selectedRow(inComponent: 0) {
                 case Constants.eGameLevel.easy.rawValue:
-                    Board.sharedInstance.ConfigBoard(level: .easy, playerName: txtName.text!)
+                    Board.sharedInstance.configBoard(level: .easy, playerName: txtName.text!)
                 case Constants.eGameLevel.medium.rawValue:
-                    Board.sharedInstance.ConfigBoard(level: .medium, playerName: txtName.text!)
+                    Board.sharedInstance.configBoard(level: .medium, playerName: txtName.text!)
                 case Constants.eGameLevel.hard.rawValue:
-                    Board.sharedInstance.ConfigBoard(level: .hard, playerName: txtName.text!)
+                    Board.sharedInstance.configBoard(level: .hard, playerName: txtName.text!)
                 default:
                     return
             }
@@ -83,5 +90,18 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
             let gameController = storyboard?.instantiateViewController(withIdentifier: "GameController") as! GameController
             navigationController?.pushViewController(gameController, animated: true)
         }
+    }
+    
+    func addBackground(_ image : UIImage) {
+        // screen width and height:
+        let width = UIScreen.main.bounds.size.width
+        let height = UIScreen.main.bounds.size.height
+        
+        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        imageViewBackground.image = image
+        imageViewBackground.contentMode = .bottom
+        
+        self.view.addSubview(imageViewBackground)
+        self.view.sendSubview(toBack: imageViewBackground)
     }
 }

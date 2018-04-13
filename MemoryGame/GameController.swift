@@ -32,8 +32,13 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         // Getting a cell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BoardCell", for: indexPath) as! BoardCell
         
+        // Setting the cell style
+        cell.layer.backgroundColor = UIColor.white.cgColor
+        cell.layer.borderWidth = 3.5
+        cell.layer.borderColor = UIColor.black.cgColor
+        
         // Allocating an image to the cell
-        boardController.AllocateImage(cell: cell)
+        boardController.allocateImage(cell: cell)
         
         return cell
     }
@@ -43,7 +48,7 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         let selectedCell = collectionView.cellForItem(at: indexPath) as! BoardCell
         
         // Handle with selecting a cell
-        boardController.HandleSelectedCell(selectedCell: selectedCell, cvBoard: cvBoard, finishGameHandler: FinishGame)
+        boardController.handleSelectedCell(selectedCell: selectedCell, cvBoard: cvBoard, finishGameHandler: finishGame)
     }
     
     override func viewDidLoad() {
@@ -54,14 +59,14 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         
         // Creating custom back button
         self.navigationItem.hidesBackButton = true
-        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(GameController.Back(sender:)))
+        let newBackButton = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(GameController.back(sender:)))
         self.navigationItem.leftBarButtonItem = newBackButton
         
         // Starting the timer
         timer.StartTimer(lblTimer)
     }
     
-    @objc func Back(sender: UIBarButtonItem) {
+    @objc func back(sender: UIBarButtonItem) {
         // Pause the timer
         timer.PauseTimer()
         
@@ -69,13 +74,20 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         let alertValidating = UIAlertController(title: "", message: "Are you sure?", preferredStyle: .alert)
         
         // Create the actions of the alert
-        alertValidating.addAction(UIAlertAction(title: "Yes", style: .default, handler:
-            {[weak self] (alert: UIAlertAction) -> Void in
+        alertValidating.addAction(UIAlertAction(title: "Yes", style: .default, handler:{
+            [weak self] (alert: UIAlertAction) -> Void in
+                // Dismissing the alert
+                self?.dismiss(animated: true, completion: nil)
+                
                 // Go back to the menu
-                self?.navigationController!.popViewController(animated: true)}))
+                self?.navigationController!.popViewController(animated: true)
+        }))
         
-        alertValidating.addAction(UIAlertAction(title: "No", style: .default, handler:
-            {[weak self] (alert: UIAlertAction) -> Void in
+        alertValidating.addAction(UIAlertAction(title: "No", style: .default, handler:{
+            [weak self] (alert: UIAlertAction) -> Void in
+                // Dismissing the alert
+                self?.dismiss(animated: true, completion: nil)
+                
                 // Resume the timer
                 self?.timer.ResumeTimer((self?.lblTimer)!)
         }))
@@ -85,7 +97,7 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        // Present navigation bar
+        // Show navigation bar
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
@@ -93,17 +105,17 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         // Set the dimentions of each cell in the board
         let colsCount = CGFloat(boardController.colsNumber)
         let rowsCount = CGFloat(boardController.rowsNumber)
-        let dimentionWidth = (collectionView.frame.width / colsCount) - (colsCount * TileMargin)
-        let dimentionHeight = (collectionView.frame.height / rowsCount) - (rowsCount * TileMargin)
+        let dimentionWidth = (collectionView.frame.width / colsCount) - TileMargin * 2
+        let dimentionHeight = (collectionView.frame.height / rowsCount) - TileMargin * 2
+
         return CGSize(width: dimentionWidth, height: dimentionHeight)
     }
     
-    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        // Set the margins of each cell
+    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {        
         return UIEdgeInsetsMake(TileMargin, TileMargin, TileMargin, TileMargin)
     }
     
-    func FinishGame() {
+    func finishGame() {
         // Stoping the timer
         timer.StopTimer()
         
@@ -111,21 +123,26 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         let alertFinish = UIAlertController(title: "Congratulations!", message: "You finished the game in " + lblTimer.text! + " minutes", preferredStyle: .alert)
         alertFinish.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
             [weak self] (alert: UIAlertAction) -> Void in
+            // Dismissing the alert
+            self?.dismiss(animated: true, completion: nil)
+            
+            // Go back to the menu
             self?.navigationController!.popViewController(animated: true)
         }))
+        
         self.present(alertFinish, animated: true, completion: nil)
     }
 }
 
 class BoardCell : UICollectionViewCell {
     // Constants
-    let COVER_IMAGE = #imageLiteral(resourceName: "blue_back")
+    let COVER_IMAGE = #imageLiteral(resourceName: "card_cover")
     
     // Properties
     @IBOutlet weak var uiImage: UIImageView!
     var isPresented = Bool(false)
     var isMatchFound = Bool(false)
-    var eImageVal = Constants.eCards.aceH
+    var imageVal = #imageLiteral(resourceName: "card_cover")
     
     // Functions
     override func awakeFromNib() {
@@ -133,11 +150,11 @@ class BoardCell : UICollectionViewCell {
         uiImage.image = COVER_IMAGE
     }
     
-    func Flip() {
-        uiImage.image = eImageVal.getImage()
+    func flip() {
+        uiImage.image = imageVal
     }
     
-    func FlipOver() {
+    func flipOver() {
         uiImage.image = COVER_IMAGE
     }
 }

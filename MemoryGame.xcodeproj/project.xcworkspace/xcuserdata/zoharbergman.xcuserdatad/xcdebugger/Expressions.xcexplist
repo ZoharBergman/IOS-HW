@@ -11,10 +11,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Board.AllocateImage(cell:):Board.swift">
+         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "arrCardsImages[0]">
+               value = "self.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -46,6 +46,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GameController.collectionView(_:layout:insetForSectionAtIndex:):GameController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "0.05*(collectionView.frame.width  / colsCount)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "Board.CheckMatch(cvBoard:):Board.swift">
          <PersistentStrings>
             <PersistentString
@@ -54,10 +62,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
+         contextName = "Board.AllocateImage(cell:):Board.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.navigationController">
+               value = "arrCardsImages[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

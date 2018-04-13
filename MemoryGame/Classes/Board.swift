@@ -16,7 +16,8 @@ class Board {
     // Properties
     public var rowsNumber : Int
     public var colsNumber : Int
-    public var arrCardsImages = [Constants.eCards]()
+    public var level : Constants.eGameLevel
+    public var arrCardsImages = [UIImage]()
     public var matchesNumber : Int
     public var selectedCells = [BoardCell]()
     public var playerName : String
@@ -28,10 +29,11 @@ class Board {
         colsNumber = 0
         matchesNumber = 0
         playerName = ""
+        level = .easy
     }
     
     // Functions
-    func ConfigBoard(level: Constants.eGameLevel, playerName: String) {
+    func configBoard(level: Constants.eGameLevel, playerName: String) {
         switch level {
         case .easy:
             rowsNumber = 4
@@ -46,42 +48,51 @@ class Board {
         
         // Init the properties for the new game
         self.playerName = playerName
+        self.level = level
         matchesNumber = colsNumber * rowsNumber / 2
         selectedCells = []
         arrCardsImages = []
         
         // Generating the card images for the new game
-        GenerateCardsImages()
+        generateCardsImages()
     }
     
-    func AllocateImage(cell : BoardCell) {
+    func allocateImage(cell : BoardCell) {
         // Allocate an image (from the generated images) to each cell in the board
         let rand = Int(arc4random_uniform(UInt32(arrCardsImages.count)))
-        cell.eImageVal = arrCardsImages[rand]
+        cell.imageVal = arrCardsImages[rand]
         arrCardsImages.remove(at: rand)
     }
     
-    func GenerateCardsImages() {
+    func generateCardsImages() {
         arrCardsImages = []
         
-        // While we didn't fill an array with all the images that are needed for filling the board
-        while (arrCardsImages.count < rowsNumber * colsNumber) {
-            // Getting a random card image
-            let randCardImage = Constants.eCards(rawValue: Int(arc4random_uniform(Constants.eCards.getCardsNumber())))!
-            
-            // Checking that the random card image is not already in the array of cards
-            if (!arrCardsImages.contains(randCardImage)) {
-                arrCardsImages.append(randCardImage)
-                arrCardsImages.append(randCardImage)
+        // In case the level is hard, just put all the images twice
+        if (level == .hard) {
+            for i in 1...matchesNumber {
+                arrCardsImages.append(UIImage(named: String(i))!)
+                arrCardsImages.append(UIImage(named: String(i))!)
+            }
+        } else {
+            // While we didn't finish to fill an array with all the images that are needed for filling the board
+            while (arrCardsImages.count < rowsNumber * colsNumber) {
+                // Getting a random card image
+                let randCardImage = arc4random_uniform(UInt32(matchesNumber)) + 1
+                
+                // Checking that the random card image is not already in the array of cards
+                if (!arrCardsImages.contains(UIImage(named: String(randCardImage))!)) {
+                    arrCardsImages.append(UIImage(named: String(randCardImage))!)
+                    arrCardsImages.append(UIImage(named: String(randCardImage))!)
+                }
             }
         }
     }
     
-    func HandleSelectedCell(selectedCell : BoardCell, cvBoard: UICollectionView, finishGameHandler: () -> Void) {
+    func handleSelectedCell(selectedCell : BoardCell, cvBoard: UICollectionView, finishGameHandler: () -> Void) {
         // Validating that the user havn't found a match to this cell yet or presented it already
         if (!selectedCell.isMatchFound && !selectedCell.isPresented) {
             // Flipping the card
-            selectedCell.Flip()
+            selectedCell.flip()
             selectedCell.isPresented = true
             
             // Disable the cell
@@ -93,17 +104,17 @@ class Board {
             // Checking if two cells were selected
             if(selectedCells.count == 2) {
                 // Disable all the cells
-                SetEnabled(isEnabled: false, cvBoard: cvBoard)
+                setEnabled(isEnabled: false, cvBoard: cvBoard)
                 
                 // Checking if there is a match
-                CheckMatch(cvBoard: cvBoard, finishGameHandler: finishGameHandler)
+                checkMatch(cvBoard: cvBoard, finishGameHandler: finishGameHandler)
             }
         }
     }
     
-    func CheckMatch(cvBoard: UICollectionView, finishGameHandler : () -> Void) {
+    func checkMatch(cvBoard: UICollectionView, finishGameHandler : () -> Void) {
         // Checking if the two selected cells have the same image
-        if (selectedCells[0].eImageVal == selectedCells[1].eImageVal) {
+        if (selectedCells[0].imageVal == selectedCells[1].imageVal) {
             selectedCells[0].isMatchFound = true
             selectedCells[1].isMatchFound = true
             
@@ -115,21 +126,21 @@ class Board {
                 finishGameHandler()
             } else {
                 selectedCells = []
-                SetEnabled(isEnabled: true, cvBoard: cvBoard)
+                setEnabled(isEnabled: true, cvBoard: cvBoard)
             }
         } else {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] (_ timer: Timer) -> Void in
-                self!.selectedCells[0].FlipOver()
+                self!.selectedCells[0].flipOver()
                 self!.selectedCells[0].isPresented = false
-                self!.selectedCells[1].FlipOver()
+                self!.selectedCells[1].flipOver()
                 self!.selectedCells[1].isPresented = false
                 self!.selectedCells = []
-                self!.SetEnabled(isEnabled: true, cvBoard: cvBoard)
+                self!.setEnabled(isEnabled: true, cvBoard: cvBoard)
             })
         }
     }
     
-    func SetEnabled(isEnabled: Bool, cvBoard: UICollectionView) {
+    func setEnabled(isEnabled: Bool, cvBoard: UICollectionView) {
         for var cell in cvBoard.visibleCells as! [BoardCell] {
             cell.isUserInteractionEnabled = isEnabled
         }
