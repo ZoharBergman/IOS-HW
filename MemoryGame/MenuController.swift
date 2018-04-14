@@ -13,12 +13,16 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     // Properties
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var pickerLevels: UIPickerView!
+    @IBOutlet weak var imgImage: UIImageView!
     
     // Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addBackground(#imageLiteral(resourceName: "menu"))
+        // Setting the image click
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped(tapGestureRecognizer:)))
+        imgImage.isUserInteractionEnabled = true
+        imgImage.addGestureRecognizer(tapGestureRecognizer)
         
         // Setting the levels' picker
         self.pickerLevels.dataSource = self
@@ -61,9 +65,11 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         txtName.resignFirstResponder()
         return true
     }
-
-    @IBAction func onGoButtonClick(_ sender: UIButton) {
+    
+    @objc func imageTapped(tapGestureRecognizer: UITapGestureRecognizer) {
         txtName.text = txtName.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        // Validating that the user entered a name
         if (txtName.text!.isEmpty) {
             let alertView = UIAlertController(title: "Error", message: "Please enter a name", preferredStyle: .alert)
             alertView.addAction(UIAlertAction(title: "Ok", style: .default, handler:{
@@ -76,32 +82,19 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         } else {
             // Checking how to configure the game's board
             switch pickerLevels.selectedRow(inComponent: 0) {
-                case Constants.eGameLevel.easy.rawValue:
-                    Board.sharedInstance.configBoard(level: .easy, playerName: txtName.text!)
-                case Constants.eGameLevel.medium.rawValue:
-                    Board.sharedInstance.configBoard(level: .medium, playerName: txtName.text!)
-                case Constants.eGameLevel.hard.rawValue:
-                    Board.sharedInstance.configBoard(level: .hard, playerName: txtName.text!)
-                default:
-                    return
+            case Constants.eGameLevel.easy.rawValue:
+                Board.sharedInstance.configBoard(level: .easy, playerName: txtName.text!)
+            case Constants.eGameLevel.medium.rawValue:
+                Board.sharedInstance.configBoard(level: .medium, playerName: txtName.text!)
+            case Constants.eGameLevel.hard.rawValue:
+                Board.sharedInstance.configBoard(level: .hard, playerName: txtName.text!)
+            default:
+                return
             }
             
             // Navigating to the game's view
             let gameController = storyboard?.instantiateViewController(withIdentifier: "GameController") as! GameController
             navigationController?.pushViewController(gameController, animated: true)
         }
-    }
-    
-    func addBackground(_ image : UIImage) {
-        // screen width and height:
-        let width = UIScreen.main.bounds.size.width
-        let height = UIScreen.main.bounds.size.height
-        
-        let imageViewBackground = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
-        imageViewBackground.image = image
-        imageViewBackground.contentMode = .bottom
-        
-        self.view.addSubview(imageViewBackground)
-        self.view.sendSubview(toBack: imageViewBackground)
     }
 }

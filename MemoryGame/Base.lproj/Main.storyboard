@@ -35,7 +35,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-Is-xX3">
-                                <rect key="frame" x="256" y="370" width="512" height="216"/>
+                                <rect key="frame" x="256" y="302" width="512" height="216"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Tlo-cT-dIZ"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="qhv-cV-ZQ7"/>
@@ -47,33 +47,28 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="04Q-Re-Ipl">
-                                <rect key="frame" x="256" y="765.5" width="512" height="54"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                <state key="normal" title="Go">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <action selector="onGoButtonClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FVk-nV-Q2y"/>
-                                </connections>
-                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="2Xs-U8-loA">
+                                <rect key="frame" x="0.0" y="707.5" width="1024" height="658.5"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="sZd-Is-xX3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.35" id="41X-bH-gyq"/>
+                            <constraint firstItem="sZd-Is-xX3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.3" id="41X-bH-gyq"/>
                             <constraint firstItem="NGC-sg-x3h" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="60B-4u-9z6"/>
-                            <constraint firstItem="04Q-Re-Ipl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Qyq-XC-TeI"/>
                             <constraint firstItem="sZd-Is-xX3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Tmg-5s-GYF"/>
+                            <constraint firstItem="2Xs-U8-loA" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="VH8-PT-WVQ"/>
+                            <constraint firstItem="2Xs-U8-loA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.45" id="Wy4-IA-qgE"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Xs-U8-loA" secondAttribute="bottom" id="eSh-sM-5nC"/>
                             <constraint firstItem="NGC-sg-x3h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jYx-Qs-18U"/>
                             <constraint firstItem="NGC-sg-x3h" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.15" id="uWE-EH-vWv"/>
-                            <constraint firstItem="04Q-Re-Ipl" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.58" id="wCb-PB-hJa"/>
                             <constraint firstItem="sZd-Is-xX3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xZ5-uf-YoP"/>
-                            <constraint firstItem="04Q-Re-Ipl" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="yfH-lQ-Ip8"/>
+                            <constraint firstItem="2Xs-U8-loA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xeQ-g7-HZ2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="aaW-pF-lsV"/>
                     <connections>
+                        <outlet property="imgImage" destination="2Xs-U8-loA" id="uvg-Ul-lRd"/>
                         <outlet property="pickerLevels" destination="sZd-Is-xX3" id="Whf-zd-x9m"/>
                         <outlet property="txtName" destination="NGC-sg-x3h" id="8RZ-Ku-lgr"/>
                     </connections>
@@ -141,7 +136,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p7V-0I-bOJ">
-                                <rect key="frame" x="819" y="125" width="205" height="27.5"/>
+                                <rect key="frame" x="819" y="159.5" width="205" height="27.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="23"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -156,7 +151,7 @@
                             <constraint firstItem="KEm-d6-Fm8" firstAttribute="width" secondItem="ZzV-i5-Lg0" secondAttribute="width" multiplier="0.8" id="UVV-7W-hib"/>
                             <constraint firstItem="KEm-d6-Fm8" firstAttribute="centerX" secondItem="74Y-yO-lOt" secondAttribute="centerX" id="VU6-mU-EqX"/>
                             <constraint firstItem="rZX-I9-8DE" firstAttribute="centerY" secondItem="74Y-yO-lOt" secondAttribute="centerY" multiplier="0.35" id="hgI-Fk-tDW"/>
-                            <constraint firstItem="p7V-0I-bOJ" firstAttribute="centerY" secondItem="74Y-yO-lOt" secondAttribute="centerY" multiplier="0.2" id="qHX-CE-D3b"/>
+                            <constraint firstItem="p7V-0I-bOJ" firstAttribute="centerY" secondItem="74Y-yO-lOt" secondAttribute="centerY" multiplier="0.25" id="qHX-CE-D3b"/>
                             <constraint firstItem="rZX-I9-8DE" firstAttribute="width" secondItem="ZzV-i5-Lg0" secondAttribute="width" multiplier="0.5" id="s12-UR-YWg"/>
                             <constraint firstItem="p7V-0I-bOJ" firstAttribute="width" secondItem="ZzV-i5-Lg0" secondAttribute="width" multiplier="0.2" id="wEN-UT-bXG"/>
                         </constraints>
@@ -173,4 +168,7 @@
             <point key="canvasLocation" x="1358" y="48"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="menu" width="376" height="320"/>
+    </resources>
 </document>

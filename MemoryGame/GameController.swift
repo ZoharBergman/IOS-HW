@@ -16,16 +16,16 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
     @IBOutlet weak var cvBoard: UICollectionView!
     @IBOutlet weak var lblPlayerName: UILabel!
     @IBOutlet weak var lblTimer: UILabel!
-    var timer = MyTimer()
-    var boardController = Board.sharedInstance
+    private var timer = MyTimer()
+    private var boardController = Board.sharedInstance
     
     // Functions
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return boardController.colsNumber
+        return boardController.getColsNumber()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return boardController.rowsNumber
+        return boardController.getRowsNumber()
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -55,7 +55,7 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         super.viewDidLoad()
         
         // Setting the label of the player's name
-        lblPlayerName.text = boardController.playerName
+        lblPlayerName.text = boardController.getPlayerName()
         
         // Creating custom back button
         self.navigationItem.hidesBackButton = true
@@ -103,8 +103,8 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
     
     @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
         // Set the dimentions of each cell in the board
-        let colsCount = CGFloat(boardController.colsNumber)
-        let rowsCount = CGFloat(boardController.rowsNumber)
+        let colsCount = CGFloat(boardController.getColsNumber())
+        let rowsCount = CGFloat(boardController.getRowsNumber())
         let dimentionWidth = (collectionView.frame.width / colsCount) - TileMargin * 2
         let dimentionHeight = (collectionView.frame.height / rowsCount) - TileMargin * 2
 
@@ -140,9 +140,34 @@ class BoardCell : UICollectionViewCell {
     
     // Properties
     @IBOutlet weak var uiImage: UIImageView!
-    var isPresented = Bool(false)
-    var isMatchFound = Bool(false)
-    var imageVal = #imageLiteral(resourceName: "card_cover")
+    private var isPresented = Bool(false)
+    private var isMatchFound = Bool(false)
+    private var imageVal = #imageLiteral(resourceName: "card_cover")
+    
+    // Getters & Setters
+    func getIsPresented() -> Bool {
+        return isPresented
+    }
+    
+    func getIsMatchFound() -> Bool {
+        return isMatchFound
+    }
+    
+    func getImageVal() -> UIImage {
+        return imageVal
+    }
+    
+    func setIsPresented(_ isPresented : Bool) {
+        self.isPresented = isPresented
+    }
+    
+    func setIsMatchFound(_ isMatchFound : Bool) {
+        self.isMatchFound = isMatchFound
+    }
+    
+    func setImageVal(_ imageVal : UIImage) {
+        self.imageVal = imageVal
+    }
     
     // Functions
     override func awakeFromNib() {

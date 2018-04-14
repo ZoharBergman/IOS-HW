@@ -14,13 +14,13 @@ class Board {
     static let sharedInstance = Board()
     
     // Properties
-    public var rowsNumber : Int
-    public var colsNumber : Int
-    public var level : Constants.eGameLevel
-    public var arrCardsImages = [UIImage]()
-    public var matchesNumber : Int
-    public var selectedCells = [BoardCell]()
-    public var playerName : String
+    private var rowsNumber : Int
+    private var colsNumber : Int
+    private var level : Constants.eGameLevel
+    private var arrCardsImages = [UIImage]()
+    private var matchesNumber : Int
+    private var selectedCells = [BoardCell]()
+    private var playerName : String
     
     
     // Ctor
@@ -30,6 +30,31 @@ class Board {
         matchesNumber = 0
         playerName = ""
         level = .easy
+    }
+    
+    // Getters
+    func getRowsNumber() -> Int {
+        return rowsNumber
+    }
+    
+    func getColsNumber() -> Int {
+        return colsNumber
+    }
+    
+    func getLevel() -> Constants.eGameLevel {
+        return level
+    }
+    
+    func getMatchesNumber() -> Int {
+        return matchesNumber
+    }
+    
+    func getSelectedCells() -> [BoardCell] {
+        return selectedCells
+    }
+    
+    func getPlayerName() -> String {
+        return playerName
     }
     
     // Functions
@@ -60,7 +85,7 @@ class Board {
     func allocateImage(cell : BoardCell) {
         // Allocate an image (from the generated images) to each cell in the board
         let rand = Int(arc4random_uniform(UInt32(arrCardsImages.count)))
-        cell.imageVal = arrCardsImages[rand]
+        cell.setImageVal(arrCardsImages[rand])
         arrCardsImages.remove(at: rand)
     }
     
@@ -90,10 +115,10 @@ class Board {
     
     func handleSelectedCell(selectedCell : BoardCell, cvBoard: UICollectionView, finishGameHandler: () -> Void) {
         // Validating that the user havn't found a match to this cell yet or presented it already
-        if (!selectedCell.isMatchFound && !selectedCell.isPresented) {
+        if (!selectedCell.getIsMatchFound() && !selectedCell.getIsPresented()) {
             // Flipping the card
             selectedCell.flip()
-            selectedCell.isPresented = true
+            selectedCell.setIsPresented(true)
             
             // Disable the cell
             selectedCell.isUserInteractionEnabled = false
@@ -114,9 +139,9 @@ class Board {
     
     func checkMatch(cvBoard: UICollectionView, finishGameHandler : () -> Void) {
         // Checking if the two selected cells have the same image
-        if (selectedCells[0].imageVal == selectedCells[1].imageVal) {
-            selectedCells[0].isMatchFound = true
-            selectedCells[1].isMatchFound = true
+        if (selectedCells[0].getImageVal() == selectedCells[1].getImageVal()) {
+            selectedCells[0].setIsMatchFound(true)
+            selectedCells[1].setIsMatchFound(true)
             
             // Decreasing the number of matches to find by 1
             matchesNumber = matchesNumber - 1
@@ -131,9 +156,9 @@ class Board {
         } else {
             Timer.scheduledTimer(withTimeInterval: 1, repeats: false, block: { [weak self] (_ timer: Timer) -> Void in
                 self!.selectedCells[0].flipOver()
-                self!.selectedCells[0].isPresented = false
+                self!.selectedCells[0].setIsPresented(false)
                 self!.selectedCells[1].flipOver()
-                self!.selectedCells[1].isPresented = false
+                self!.selectedCells[1].setIsPresented(false)
                 self!.selectedCells = []
                 self!.setEnabled(isEnabled: true, cvBoard: cvBoard)
             })

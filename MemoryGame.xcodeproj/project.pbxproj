@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5F62C5CA20791EC700827782 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62C5C920791EC600827782 /* Timer.swift */; };
+		5F62C5CA20791EC700827782 /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62C5C920791EC600827782 /* MyTimer.swift */; };
 		5F67B3682068039500780FF6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67B3672068039500780FF6 /* GameController.swift */; };
 		5F67B36C2068252F00780FF6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67B36B2068252F00780FF6 /* Board.swift */; };
 		5F75BE2620714E2D00534992 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F75BE2520714E2D00534992 /* Constants.swift */; };
@@ -39,7 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5F62C5C920791EC600827782 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
+		5F62C5C920791EC600827782 /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		5F67B3672068039500780FF6 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		5F67B36B2068252F00780FF6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		5F75BE2520714E2D00534992 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -89,7 +89,7 @@
 			children = (
 				5F67B36B2068252F00780FF6 /* Board.swift */,
 				5F75BE2520714E2D00534992 /* Constants.swift */,
-				5F62C5C920791EC600827782 /* Timer.swift */,
+				5F62C5C920791EC600827782 /* MyTimer.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -284,7 +284,7 @@
 			files = (
 				5FE1D7ED20668E00007B7F41 /* MenuController.swift in Sources */,
 				5F67B3682068039500780FF6 /* GameController.swift in Sources */,
-				5F62C5CA20791EC700827782 /* Timer.swift in Sources */,
+				5F62C5CA20791EC700827782 /* MyTimer.swift in Sources */,
 				5F67B36C2068252F00780FF6 /* Board.swift in Sources */,
 				5FE1D7EB20668E00007B7F41 /* AppDelegate.swift in Sources */,
 				5FE1D7F320668E00007B7F41 /* MemoryGame.xcdatamodeld in Sources */,
