@@ -11,14 +11,6 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.navigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "GameController.collectionView(_:layout:sizeForItemAtIndexPath:):GameController.swift">
          <PersistentStrings>
             <PersistentString
@@ -30,10 +22,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Board.AllocateImage(cell:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrCardsImages[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MenuController.viewDidLoad():MenuController.swift">
          <PersistentStrings>
             <PersistentString
                value = "navigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "BoardCell.flipOver():GameController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "uiImageCover">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -62,10 +70,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Board.AllocateImage(cell:):Board.swift">
+         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "arrCardsImages[0]">
+               value = "self.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

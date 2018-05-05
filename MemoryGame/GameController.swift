@@ -34,8 +34,8 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         
         // Setting the cell style
         cell.layer.backgroundColor = UIColor.white.cgColor
-        cell.layer.borderWidth = 3.5
-        cell.layer.borderColor = UIColor.black.cgColor
+        cell.layer.borderWidth = 3
+        cell.layer.borderColor = UIColor.white.cgColor
         
         // Allocating an image to the cell
         boardController.allocateImage(cell: cell)
@@ -177,9 +177,11 @@ class BoardCell : UICollectionViewCell {
     
     func flip() {
         uiImage.image = imageVal
+        UIView.transition(with: uiImage, duration: 0.5, options: .transitionFlipFromLeft, animations: nil, completion: nil)
     }
     
     func flipOver() {
         uiImage.image = COVER_IMAGE
+        UIView.transition(with: uiImage, duration: 0.5, options: .transitionFlipFromRight, animations: nil, completion: nil)
     }
 }
