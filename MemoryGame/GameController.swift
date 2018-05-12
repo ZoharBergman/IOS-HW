@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class GameController : UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     // Constants
@@ -119,6 +120,9 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         // Stoping the timer
         timer.StopTimer()
         
+        // Saving the score
+        Score.saveScore(name : lblPlayerName.text!, minutes : timer.getMinutes(), seconds : timer.getSeconds())
+        
         // Show FINISH message
         let alertFinish = UIAlertController(title: "Congratulations!", message: "You finished the game in " + lblTimer.text! + " minutes", preferredStyle: .alert)
         alertFinish.addAction(UIAlertAction(title: "Ok", style: .default, handler: {
@@ -132,6 +136,8 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         
         self.present(alertFinish, animated: true, completion: nil)
     }
+    
+    
 }
 
 class BoardCell : UICollectionViewCell {

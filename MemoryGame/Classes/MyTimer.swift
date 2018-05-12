@@ -20,6 +20,14 @@ class MyTimer {
         minutes = 0
     }
     
+    func getSeconds() -> Int {
+        return seconds
+    }
+    
+    func getMinutes() -> Int {
+        return minutes
+    }
+    
     func StartTimer(_ lblTimer : UILabel) {
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] (_ timer: Timer) -> Void in self?.UpdateTimer(lblTimer)})
     }
@@ -46,14 +54,20 @@ class MyTimer {
             seconds = 0
         }
         
+        lblTimer.text = MyTimer.formatTimer(minutes : self.minutes, seconds : self.seconds)
+    }
+    
+    static func formatTimer(minutes : Int, seconds : Int) -> String{
         if (minutes < 10 && seconds < 10) {
-            lblTimer.text = "0" + String(minutes) + ":" + "0" + String(seconds)
+         return "0" + String(minutes) + ":" + "0" + String(seconds)
         } else if (minutes < 10 && seconds >= 10) {
-            lblTimer.text = "0" + String(minutes) + ":" + String(seconds)
+            return "0" + String(minutes) + ":" + String(seconds)
         } else if (minutes >= 10 && seconds < 10) {
-            lblTimer.text = String(minutes) + ":" + "0" + String(seconds)
+            return String(minutes) + ":" + "0" + String(seconds)
         } else if (minutes >= 10 && seconds >= 10) {
-            lblTimer.text = String(minutes) + ":" + String(seconds)
+            return String(minutes) + ":" + String(seconds)
         }
+        
+        return ""
     }
 }

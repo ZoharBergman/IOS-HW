@@ -48,16 +48,26 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="2Xs-U8-loA">
-                                <rect key="frame" x="0.0" y="707.5" width="1024" height="658.5"/>
+                                <rect key="frame" x="0.0" y="779" width="1024" height="587"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9y-5F-eup">
+                                <rect key="frame" x="256.5" y="625.5" width="512" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="View Scores">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="sZd-Is-xX3" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.3" id="41X-bH-gyq"/>
                             <constraint firstItem="NGC-sg-x3h" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="60B-4u-9z6"/>
+                            <constraint firstItem="X9y-5F-eup" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="0.9" id="LL5-GC-Npp"/>
+                            <constraint firstItem="X9y-5F-eup" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="LlQ-72-brf"/>
+                            <constraint firstItem="X9y-5F-eup" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="QUy-z9-8b6"/>
                             <constraint firstItem="sZd-Is-xX3" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.5" id="Tmg-5s-GYF"/>
                             <constraint firstItem="2Xs-U8-loA" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="VH8-PT-WVQ"/>
-                            <constraint firstItem="2Xs-U8-loA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.45" id="Wy4-IA-qgE"/>
+                            <constraint firstItem="2Xs-U8-loA" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" multiplier="1.5" id="Wy4-IA-qgE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Xs-U8-loA" secondAttribute="bottom" id="eSh-sM-5nC"/>
                             <constraint firstItem="NGC-sg-x3h" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="jYx-Qs-18U"/>
                             <constraint firstItem="NGC-sg-x3h" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="bottom" multiplier="0.15" id="uWE-EH-vWv"/>
@@ -76,6 +86,72 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="229.68749999999997" y="-88.286969253294288"/>
+        </scene>
+        <!--Scores Controller-->
+        <scene sceneID="mts-0g-Bnc">
+            <objects>
+                <viewController id="OX5-Tn-aiU" customClass="ScoresController" customModule="MemoryGame" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="11V-Sn-gSQ">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="2LE-Ma-zY9">
+                                <rect key="frame" x="102.5" y="215" width="819" height="956"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qeq-wb-GeH">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aVj-Fw-myK" customClass="ScoreCell" customModule="MemoryGame" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPl-2e-Ylm">
+                                                    <rect key="frame" x="2.5" y="14.5" width="45" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sPl-2e-Ylm" firstAttribute="centerY" secondItem="aVj-Fw-myK" secondAttribute="centerY" id="5bD-ys-b3E"/>
+                                            <constraint firstItem="sPl-2e-Ylm" firstAttribute="width" secondItem="aVj-Fw-myK" secondAttribute="width" multiplier="0.9" id="NIG-mX-o5X"/>
+                                            <constraint firstItem="sPl-2e-Ylm" firstAttribute="centerX" secondItem="aVj-Fw-myK" secondAttribute="centerX" id="igU-MP-fTA"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="lblText" destination="sPl-2e-Ylm" id="a9f-Vx-wiW"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="OX5-Tn-aiU" id="P7p-58-rRC"/>
+                                    <outlet property="delegate" destination="OX5-Tn-aiU" id="K4f-GK-ZuD"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2LE-Ma-zY9" firstAttribute="width" secondItem="11V-Sn-gSQ" secondAttribute="width" multiplier="0.8" id="c0N-z8-bh0"/>
+                            <constraint firstItem="2LE-Ma-zY9" firstAttribute="centerY" secondItem="wCc-ib-0jX" secondAttribute="centerY" id="cfe-oM-iem"/>
+                            <constraint firstItem="2LE-Ma-zY9" firstAttribute="height" secondItem="11V-Sn-gSQ" secondAttribute="height" multiplier="0.7" id="hcU-1Y-xL9"/>
+                            <constraint firstItem="2LE-Ma-zY9" firstAttribute="centerX" secondItem="wCc-ib-0jX" secondAttribute="centerX" id="qgJ-t5-4HI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wCc-ib-0jX"/>
+                    </view>
+                    <connections>
+                        <outlet property="cvScores" destination="2LE-Ma-zY9" id="qWh-qc-zfZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nqu-2Z-ckd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="708"/>
         </scene>
         <!--Game Controller-->
         <scene sceneID="N2T-N7-3c5">
