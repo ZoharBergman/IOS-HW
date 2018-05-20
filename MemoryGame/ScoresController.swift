@@ -31,7 +31,7 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2;
+        return 2
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -39,7 +39,7 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ScoreCell", for: indexPath) as! ScoreCell
         
         // Setting the cell's content
-        if (indexPath.row == 0) {
+        if (indexPath.section == 0) {
             if (indexPath.item == 0) {
                 cell.lblText.text = NAME
             } else if (indexPath.item == 1){
@@ -47,16 +47,31 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
             }
         } else {
             if (indexPath.item == 0) {
-                cell.lblText.text = scores![indexPath.item - 1].name
+                cell.lblText.text = scores![indexPath.section - 1].name
             } else if (indexPath.item == 1){
-                cell.lblText.text = MyTimer.formatTimer(minutes: scores![indexPath.item - 1].minutes.intValue, seconds: scores![indexPath.item - 1].seconds.intValue)
+                cell.lblText.text = MyTimer.formatTimer(minutes: scores![indexPath.section - 1].minutes.intValue, seconds: scores![indexPath.section - 1].seconds.intValue)
             }
         }
         
         return cell
     }
+    
+    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: IndexPath) -> CGSize {
+        // Set the dimentions of each cell in the board
+        let dimentionWidth = collectionView.frame.width / 2 - 10
+        let dimentionHeight = CGFloat(30) //(collectionView.frame.height) / CGFloat((scores?.count)! + 1)
+        
+        return CGSize(width: dimentionWidth, height: dimentionHeight)
+    }
+    
+//    @objc func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsetsMake(TileMargin, TileMargin, TileMargin, TileMargin)
+//    }
 }
 
 class ScoreCell : UICollectionViewCell {
     @IBOutlet weak internal var lblText: UILabel!
+    
+    override func awakeFromNib() {
+    }
 }

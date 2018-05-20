@@ -73,8 +73,8 @@ class Score : NSManagedObject {
         scoresFetchedRequest.fetchLimit = limit
         
         // Setting sorts
-        let minutesSort = NSSortDescriptor(key: MINUTES, ascending:false)
-        let secondsSort = NSSortDescriptor(key: SECONDS, ascending:false)
+        let minutesSort = NSSortDescriptor(key: MINUTES, ascending:true)
+        let secondsSort = NSSortDescriptor(key: SECONDS, ascending:true)
         
         scoresFetchedRequest.sortDescriptors = [minutesSort, secondsSort]
         

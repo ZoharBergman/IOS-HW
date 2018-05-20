@@ -117,11 +117,14 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
     }
     
     func finishGame() {
-        // Stoping the timer
-        timer.StopTimer()
+        // Pause the timer
+        timer.PauseTimer()
         
         // Saving the score
         Score.saveScore(name : lblPlayerName.text!, minutes : timer.getMinutes(), seconds : timer.getSeconds())
+        
+        // Stoping the timer
+        timer.StopTimer()
         
         // Show FINISH message
         let alertFinish = UIAlertController(title: "Congratulations!", message: "You finished the game in " + lblTimer.text! + " minutes", preferredStyle: .alert)

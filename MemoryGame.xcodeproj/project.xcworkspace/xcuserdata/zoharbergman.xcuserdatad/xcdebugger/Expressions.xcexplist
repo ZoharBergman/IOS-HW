@@ -22,10 +22,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Board.AllocateImage(cell:):Board.swift">
+         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "arrCardsImages[0]">
+               value = "self.navigationController">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -42,6 +42,14 @@
          <PersistentStrings>
             <PersistentString
                value = "uiImageCover">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScoresController.numberOfSections(in:):ScoresController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scores?.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -70,10 +78,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
+         contextName = "ScoresController.collectionView(_:cellForItemAt:):ScoresController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "self.navigationController">
+               value = "scores![indexPath.section - 1].seconds.intValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Board.AllocateImage(cell:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrCardsImages[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

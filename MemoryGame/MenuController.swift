@@ -55,6 +55,12 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         return Constants.eGameLevel(rawValue: row)?.getDescription()
     }
     
+    @IBAction func onButtonViewScoresPressed(_ sender: UIButton) {
+        // Navigating to the scores' view
+        let scoresController = storyboard?.instantiateViewController(withIdentifier: "ScoresController") as! ScoresController
+        navigationController?.pushViewController(scoresController, animated: true)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // Closing the keyboard when the user touch outside of it
         self.view.endEditing(true)
