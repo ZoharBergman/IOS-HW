@@ -98,9 +98,39 @@ class MenuController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
                 return
             }
             
-            // Navigating to the game's view
-            let gameController = storyboard?.instantiateViewController(withIdentifier: "GameController") as! GameController
-            navigationController?.pushViewController(gameController, animated: true)
+            showPickCardsAlert()
         }
+    }
+    
+    func showPickCardsAlert() {
+        // Create alert message
+        let alertPickCards = UIAlertController(title: "", message: "Pick cards", preferredStyle: .alert)
+        
+        // Create the actions of the alert
+        alertPickCards.addAction(UIAlertAction(title: "Default", style: .default, handler:{
+            [weak self] (alert: UIAlertAction) -> Void in
+            // Dismissing the alert
+            self?.dismiss(animated: true, completion: nil)
+            
+            // Generating the card images for the new game
+            Board.sharedInstance.generateCardsImages()
+            
+            // Navigating to the game's view
+            let gameController = self?.storyboard?.instantiateViewController(withIdentifier: "GameController") as! GameController
+            self?.navigationController?.pushViewController(gameController, animated: true)
+        }))
+        
+        alertPickCards.addAction(UIAlertAction(title: "Custom", style: .default, handler:{
+            [weak self] (alert: UIAlertAction) -> Void in
+            // Dismissing the alert
+            self?.dismiss(animated: true, completion: nil)
+            
+            // Navigating to the cards picker's view
+            let cardsPickerController = self?.storyboard?.instantiateViewController(withIdentifier: "CardsPickerController") as! CardsPickerController
+            self?.navigationController?.pushViewController(cardsPickerController, animated: true)
+        }))
+        
+        // Presenting the alert
+        self.present(alertPickCards, animated: true, completion: nil)
     }
 }

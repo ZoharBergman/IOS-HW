@@ -3,14 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "GLOBAL">
-         <PersistentStrings>
-            <PersistentString
-               value = "leftMenuNavigationController">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "GameController.collectionView(_:layout:sizeForItemAtIndexPath:):GameController.swift">
          <PersistentStrings>
             <PersistentString
@@ -22,12 +14,50 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "GLOBAL">
+         <PersistentStrings>
+            <PersistentString
+               value = "leftMenuNavigationController">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MenuController.onGoEasyButtonClick(_:):MenuController.swift">
          <PersistentStrings>
             <PersistentString
                value = "self.navigationController">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Board.generateCardsImages(numberOfCards:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrCardsImages.count">
+            </PersistentString>
+            <PersistentString
+               value = "matchesNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScoresController.collectionView(_:cellForItemAt:):ScoresController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scores![indexPath.section - 1].seconds.intValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Board.AllocateImage(cell:):Board.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "arrCardsImages[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CardsPickerController.saveImage(_:):CardsPickerController.swift">
       </ContextState>
       <ContextState
          contextName = "MenuController.viewDidLoad():MenuController.swift">
@@ -46,26 +76,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScoresController.numberOfSections(in:):ScoresController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "scores?.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "Board.CheckMatch(cvBoard:finishGameHandler:):Board.swift">
          <PersistentStrings>
             <PersistentString
                value = "matchesNumber">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "GameController.collectionView(_:layout:insetForSectionAtIndex:):GameController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "0.05*(collectionView.frame.width  / colsCount)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -78,18 +92,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "ScoresController.collectionView(_:cellForItemAt:):ScoresController.swift">
+         contextName = "GameController.collectionView(_:layout:insetForSectionAtIndex:):GameController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "scores![indexPath.section - 1].seconds.intValue">
+               value = "0.05*(collectionView.frame.width  / colsCount)">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Board.AllocateImage(cell:):Board.swift">
+         contextName = "CardsPickerController.numberOfSections(in:):CardsPickerController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "arrCardsImages[0]">
+               value = "numberOfSections">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScoresController.numberOfSections(in:):ScoresController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "scores?.count">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

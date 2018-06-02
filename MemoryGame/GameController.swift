@@ -64,12 +64,12 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
         self.navigationItem.leftBarButtonItem = newBackButton
         
         // Starting the timer
-        timer.StartTimer(lblTimer)
+        timer.startTimer(lblTimer)
     }
     
     @objc func back(sender: UIBarButtonItem) {
         // Pause the timer
-        timer.PauseTimer()
+        timer.pauseTimer()
         
         // Create alert message
         let alertValidating = UIAlertController(title: "", message: "Are you sure?", preferredStyle: .alert)
@@ -90,7 +90,7 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
                 self?.dismiss(animated: true, completion: nil)
                 
                 // Resume the timer
-                self?.timer.ResumeTimer((self?.lblTimer)!)
+                self?.timer.resumeTimer((self?.lblTimer)!)
         }))
         
         // Presenting the alert
@@ -118,13 +118,13 @@ class GameController : UIViewController, UICollectionViewDataSource, UICollectio
     
     func finishGame() {
         // Pause the timer
-        timer.PauseTimer()
+        timer.pauseTimer()
         
         // Saving the score
         Score.saveScore(name : lblPlayerName.text!, minutes : timer.getMinutes(), seconds : timer.getSeconds())
         
         // Stoping the timer
-        timer.StopTimer()
+        timer.stopTimer()
         
         // Show FINISH message
         let alertFinish = UIAlertController(title: "Congratulations!", message: "You finished the game in " + lblTimer.text! + " minutes", preferredStyle: .alert)

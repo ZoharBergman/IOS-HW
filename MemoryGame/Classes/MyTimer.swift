@@ -28,25 +28,25 @@ class MyTimer {
         return minutes
     }
     
-    func StartTimer(_ lblTimer : UILabel) {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] (_ timer: Timer) -> Void in self?.UpdateTimer(lblTimer)})
+    func startTimer(_ lblTimer : UILabel) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] (_ timer: Timer) -> Void in self?.updateTimer(lblTimer)})
     }
     
-    func PauseTimer() {
+    func pauseTimer() {
         timer.invalidate()
     }
     
-    func StopTimer () {
+    func stopTimer () {
         timer.invalidate()
         seconds = 0
         minutes = 0
     }
     
-    func ResumeTimer(_ lblTimer : UILabel) {
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] (_ timer: Timer) -> Void in self?.UpdateTimer(lblTimer)})
+    func resumeTimer(_ lblTimer : UILabel) {
+        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: {[weak self] (_ timer: Timer) -> Void in self?.updateTimer(lblTimer)})
     }
     
-    @objc func UpdateTimer(_ lblTimer : UILabel) {
+    @objc func updateTimer(_ lblTimer : UILabel) {
         if (seconds < 59) {
             seconds += 1
         } else {

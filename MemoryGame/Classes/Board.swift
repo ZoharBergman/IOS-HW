@@ -57,6 +57,15 @@ class Board {
         return playerName
     }
     
+    func setArrCardsImages(arrCardsImages : [UIImage]) {
+        self.arrCardsImages = arrCardsImages
+        self.arrCardsImages.append(contentsOf: arrCardsImages)
+        
+        if (arrCardsImages.count < matchesNumber) {
+            generateCardsImages()
+        }
+    }
+    
     // Functions
     func configBoard(level: Constants.eGameLevel, playerName: String) {
         switch level {
@@ -77,9 +86,6 @@ class Board {
         matchesNumber = colsNumber * rowsNumber / 2
         selectedCells = []
         arrCardsImages = []
-        
-        // Generating the card images for the new game
-        generateCardsImages()
     }
     
     func allocateImage(cell : BoardCell) {
@@ -90,17 +96,15 @@ class Board {
     }
     
     func generateCardsImages() {
-        arrCardsImages = []
-        
         // In case the level is hard, just put all the images twice
-        if (level == .hard) {
+        if (arrCardsImages.count == 0 && level == .hard) {
             for i in 1...matchesNumber {
                 arrCardsImages.append(UIImage(named: String(i))!)
                 arrCardsImages.append(UIImage(named: String(i))!)
             }
         } else {
             // While we didn't finish to fill an array with all the images that are needed for filling the board
-            while (arrCardsImages.count < rowsNumber * colsNumber) {
+            while (arrCardsImages.count < matchesNumber * 2) {
                 // Getting a random card image
                 let randCardImage = arc4random_uniform(UInt32(matchesNumber)) + 1
                 

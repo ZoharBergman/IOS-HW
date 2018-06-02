@@ -45,6 +45,9 @@ class ScoresController : UIViewController, UICollectionViewDelegate, UICollectio
             } else if (indexPath.item == 1){
                 cell.lblText.text = SCORE
             }
+            
+            cell.lblText.textColor = UIColor.blue
+            cell.lblText.font = UIFont(name: cell.lblText.font.fontName, size: 24)
         } else {
             if (indexPath.item == 0) {
                 cell.lblText.text = scores![indexPath.section - 1].name

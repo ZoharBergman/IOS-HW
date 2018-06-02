@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F00502120BC67E800436555 /* AppPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F00502020BC67E800436555 /* AppPhotoAlbum.swift */; };
 		5F192FAF20A0B40C0028223A /* ScoresController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F192FAE20A0B40C0028223A /* ScoresController.swift */; };
 		5F37D8C8209E7D6E00AE836F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F37D8C7209E7D6E00AE836F /* Score.swift */; };
 		5F62C5CA20791EC700827782 /* MyTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F62C5C920791EC600827782 /* MyTimer.swift */; };
 		5F67B3682068039500780FF6 /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67B3672068039500780FF6 /* GameController.swift */; };
 		5F67B36C2068252F00780FF6 /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F67B36B2068252F00780FF6 /* Board.swift */; };
 		5F75BE2620714E2D00534992 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F75BE2520714E2D00534992 /* Constants.swift */; };
+		5FB6F09020B996470036174F /* CardsPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FB6F08F20B996470036174F /* CardsPickerController.swift */; };
 		5FE1D7EB20668E00007B7F41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1D7EA20668E00007B7F41 /* AppDelegate.swift */; };
 		5FE1D7ED20668E00007B7F41 /* MenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE1D7EC20668E00007B7F41 /* MenuController.swift */; };
 		5FE1D7F020668E00007B7F41 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FE1D7EE20668E00007B7F41 /* Main.storyboard */; };
@@ -41,12 +43,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5F00502020BC67E800436555 /* AppPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhotoAlbum.swift; sourceTree = "<group>"; };
 		5F192FAE20A0B40C0028223A /* ScoresController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresController.swift; sourceTree = "<group>"; };
 		5F37D8C7209E7D6E00AE836F /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		5F62C5C920791EC600827782 /* MyTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTimer.swift; sourceTree = "<group>"; };
 		5F67B3672068039500780FF6 /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		5F67B36B2068252F00780FF6 /* Board.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 		5F75BE2520714E2D00534992 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5FB6F08F20B996470036174F /* CardsPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsPickerController.swift; sourceTree = "<group>"; };
 		5FE1D7E720668E00007B7F41 /* MemoryGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemoryGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FE1D7EA20668E00007B7F41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FE1D7EC20668E00007B7F41 /* MenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,7 @@
 				5F75BE2520714E2D00534992 /* Constants.swift */,
 				5F62C5C920791EC600827782 /* MyTimer.swift */,
 				5F37D8C7209E7D6E00AE836F /* Score.swift */,
+				5F00502020BC67E800436555 /* AppPhotoAlbum.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 				5FE1D7EC20668E00007B7F41 /* MenuController.swift */,
 				5F67B3672068039500780FF6 /* GameController.swift */,
 				5F192FAE20A0B40C0028223A /* ScoresController.swift */,
+				5FB6F08F20B996470036174F /* CardsPickerController.swift */,
 				5FE1D7EE20668E00007B7F41 /* Main.storyboard */,
 				5FE1D7EA20668E00007B7F41 /* AppDelegate.swift */,
 				5FE1D7F420668E00007B7F41 /* Assets.xcassets */,
@@ -297,6 +303,8 @@
 				5F192FAF20A0B40C0028223A /* ScoresController.swift in Sources */,
 				5FE1D7F320668E00007B7F41 /* MemoryGame.xcdatamodeld in Sources */,
 				5F75BE2620714E2D00534992 /* Constants.swift in Sources */,
+				5FB6F09020B996470036174F /* CardsPickerController.swift in Sources */,
+				5F00502120BC67E800436555 /* AppPhotoAlbum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
