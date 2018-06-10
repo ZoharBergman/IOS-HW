@@ -15,10 +15,10 @@ class CardsPickerController : UIViewController, UICollectionViewDelegate, UIImag
     let TileMargin = CGFloat(5.0)
     
     // Properties
-    let imagePickerController = UIImagePickerController()
-    var images = [UIImage]()
-    var selectedImages = Set<UIImage>()
-    var numberOfSections = 0
+    private let imagePickerController = UIImagePickerController()
+    private var images = [UIImage]()
+    private var selectedImages = Set<UIImage>()
+    private var numberOfSections = 0
     @IBOutlet weak var CVImagesPicker: UICollectionView!
     @IBOutlet weak var lblPhotosToPickNum: UILabel!
     @IBOutlet weak var imgLoader: UIImageView!

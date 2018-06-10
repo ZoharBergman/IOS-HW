@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class MyTimer {
-    private var timer : Timer
+    private var timer : Timer?
     private var seconds : Int
     private var minutes : Int
     
@@ -33,11 +33,11 @@ class MyTimer {
     }
     
     func pauseTimer() {
-        timer.invalidate()
+        timer?.invalidate()
     }
     
     func stopTimer () {
-        timer.invalidate()
+        timer?.invalidate()
         seconds = 0
         minutes = 0
     }
